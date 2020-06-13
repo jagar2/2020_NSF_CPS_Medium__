@@ -1,0 +1,44 @@
+Basic application domain is daily life activity detection with social context, related to affective computing and mobile health. Basically outfit eyeglasses with multiple cameras (RGC and IR) that collect and understand what the wearer is doing and who they are meeting, and then sense biomarkers like blood pressure, electrodermal activity, head movement, eye movement, respiration rate, to map emotional state with interactions, which allows us to trigger interventions to help a patient (r.e. I detected your eating a bag of chips, you are on a diet, trigger intervention).
+
+Glasses with hi-def raw images on them at 30FPS.
+Thermal sensors
+IMUs processing on multiple points across the eyeglasses.
+
+Social sense and contact tracing? Facial recognition to count interactions? Privacy preserving on the device, capture behaviors.
+
+Everything, including the obfuscation, and then the rough gesture recognition, and then the people interactions, on device.
+
+
+\subsection{Application: Daily Life Activity and Interaction Detection}
+Social interaction is a critical indicator for detecting certain mental health problems such as depression, PTSD, and anxiety. 
+For clinicians and caregivers, understanding patient social interaction is critical for improving patient health outcomes and suggesting interventions and treatments. 
+A convenient, accurate, usable, privacy respecting, and continuous solution for monitoring personal social interactions does not yet exist. MORE MOTIVATION FROM HEALTH. Insert STATS.
+
+Social interaction is generally defined as the process that people act and react with others \cite{goffman1978presentation}. There have been several studies that show how social interaction impacts health markers, including stress \cite{ono2011relationship}, activity, and sleep quality. 
+Increasing social interaction can positively impact a person, prevent certain mental health issues \cite{godart2000anxiety}, and can help reduce other health problems including stress, depression, and post-traumatic stress disorder \cite{vesnaver2011social}.
+
+Current challenges include: (1) battery lifetime: we need weeks of lifetime while maintaining inference quality, (2) rich sensing and inference ability in real time, (3) lack of privacy for bystanders, which reduces wearer adherence and mental comfort.
+
+We propose SocialCam, a low-power consumption wearable that continuously tracks the wearer's social interaction state. SocialCam integrates multiple forward facing RGB cameras into a pair of glasses as shown in \textit{Fig. \ref{glasses}}. Our device enables face detection and stereo vision based depth estimation. Additional sensors are used to sense and understand health biomarkers.  We propose a in-hardware inference pipeline that can continuously and automatically measure the wearer's social interaction state unobtrusively, conveniently, power-efficiently and without storing user's private data. 
+
+\subsection{Essential Functions}
+\begin{enumerate}
+    \item Continuously capture personal bio-markers to understand personal health in the moment: including activity levels with IMUs, stress and anxiety via indirect methods including blood pressure via pulse transit time~\cite{}
+    \item Capture faces / people in near field and far field using multiple imagers
+    \item Understand attentiveness by observing the movement of the pupil
+    \item Finally, obfuscate any collected images to preserve privacy of bystanders encountered by the wearer.
+\end{enumerate}
+
+\subsection{Device}
+We propose a wearable eyeglass-style device that integrates two RGB cameras and a facial-recognition pipeline to detect the user's social interactions. No raw video data is ever retained, only records of the patient's social interactions. This enables a psychologist to monitor the user's social interactions through the data obtained by the device without compromising their privacy. 
+
+Our system aims to collect meta-data about a user's socialization on a day-to-day basis for use in clinical settings; we are primarily interested in measuring how long users spend socializing in-person with others during the day. 
+We assume that, for someone to be socializing with someone else in-person, social partners' faces must be in the user's line of sight. To directly measure faces in the user's line of sight, our wearable system consists of an eyeglass frame outfitted with two low-power, forward facing RGB cameras. 
+To enable stereo vision based depth estimation, the cameras will be spaced 100 - 140mm apart near the uppers corners of the eyeglass frame. Unlike monocular chest-mounted systems, our system implicitly follows the user's line of sight, is capable of incorporating stereo-vision depth information into analyses, and is more discrete because it fits naturally into normal eyewear.
+
+
+Outfitting users always-on stereo cameras presents serious privacy and data storage challenges; the vast majority of recorded data will be irrelevant, taking up storage space and - more importantly - compromise user privacy and make users feel uncomfortable \cite{alharbi2018can}. To overcome all of these issues, almost all data processing occurs on-system. As soon as images are captured, facial recognition is performed and relevant metadata is collected. No sensitive user images are ever stored or transmitted. The only data that ever leaves the platform is anonymized social interaction statistics.
+
+Face detection will be carried out by a machine learning pipeline implemented on Lattice iCE40 FPGAs, and resulting statistics will be stored in on-board FRAM. We arbitrarily choose the left camera to be used for facial recognition. When faces are recognized in the image stream from the left camera, a stereo-vision depth estimation algorithm is run on the ROIs where faces were detected in the left image stream. The system will be powered by a 3.7V LiPo battery. Our system does not need to operate at a high frame rate, so we only process images at 0.2 - 0.5Hz to save power.
+
+The primary challenge in designing this system is limiting power consumption. The hardware composition and energy consumption of each part in SocialCam is shown in \textit{Fig. \ref{hardware}}. The glasses need to be worn for 16 - 24 hour periods to be clinically useful, but battery capacity is limited by user comfort. Commercial eyewear systems like the Google Glass have a reported battery capacity of about 2,000 mAh \cite{muensterer2014google}. If we limit ourselves to half of that battery capacity and target a system runtime of 20 hours, our power draw is limited to 185mW. Data-sheets and white-papers from manufacturers suggest that this power envelope is achievable. We plan to use HiMax HM01B0 image sensors, which only require 2mW to operate at 30FPS and 320x240 resolution \cite{hm01b0}. Estimating power consumption for FPGAs is difficult because their power consumption is heavily design-dependent, however Lattice claims that human face detection is possible using less than 1mW \cite{latticeAI}, and recent work claims power consumption of about 5mW when evaluating their very small, 2-layer, 16-neuron, deep neural net about 1.1 million times per second \cite{roukhami2019very}. With these figures, our proposed system with two HM01B0 cameras, one FPGA for monocular face detection on the left camera and a second for stereo depth perception would consume less than 15mW, nearly an order of magnitude less than our target power consumption.

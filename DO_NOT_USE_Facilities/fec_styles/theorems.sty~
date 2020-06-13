@@ -1,0 +1,34 @@
+%**********
+% Packages
+%**********
+\RequirePackage{amsthm,amssymb,algorithm,algpseudocode}
+
+%**************
+% New Theorems
+%**************
+\@ifclassloaded{beamer}{}{
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{definition}[theorem]{Definition}}
+\newtheorem{assumption}[theorem]{Assumption}
+
+%**********
+% Commands
+%**********
+\newcommand{\balgorithm}  {\begin{algorithm}}
+\newcommand{\ealgorithm}  {\end{algorithm}}
+\newcommand{\balgorithmic}{\begin{algorithmic}}
+\newcommand{\ealgorithmic}{\end{algorithmic}}
+\newcommand{\bassumption} {\begin{assumption}}
+\newcommand{\eassumption} {\end{assumption}}
+\newcommand{\bcorollary}  {\begin{corollary}}
+\newcommand{\ecorollary}  {\end{corollary}}
+\newcommand{\bdefinition} {\begin{definition}}
+\newcommand{\edefinition} {\end{definition}}
+\newcommand{\blemma}      {\begin{lemma}}
+\newcommand{\elemma}      {\end{lemma}}
+\newcommand{\bproblem}    {\begin{problem}}
+\newcommand{\eproblem}    {\end{problem}}
+\newcommand{\bproof}      {\begin{proof}}
+\newcommand{\eproof}      {\end{proof}}
+\newcommand{\btheorem}    {\begin{theorem}}
+\newcommand{\etheorem}    {\end{theorem}}

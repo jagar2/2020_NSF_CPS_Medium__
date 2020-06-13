@@ -1,0 +1,23 @@
+\section{Overview}\label{sec.overview}
+Unobtrusive monitoring of human activity within social and environmental context has far reaching applications across affective computing, mobile health, preventive medicine, and public health. 
+Emerging CPS technologies offer platforms with rich multi modal sensing capabilities to support data-driven optimization and management of systems to help promote healthier lifestyles for individuals and larger populations, monitor distributions and spread of behaviors, person-to-person connectivity, infectious diseases, and even societal trends. 
+
+A large number of these applications are driven by cyberphysical systems that require real-time responsiveness, ability to adapt and perform autonomous decision making, and perform reliable operation under stringent energy budgets. 
+As we consider the closed loop of a cyberphysical system, these properties are necessary for all stages: (i) Sensors: As emerging CPS devices become increasingly powerful with growing modalities of sensing, the trade-offs between computation time and energy budgets is difficult to optimize. On one hand, there is a demand for omnipresent devices, yet, on the other hand, there is not enough energy and bandwidth to sustain them at large scale; 
+(ii) Computation and Control of Physical Components: There are various reasons for increasing expectations of computational capabilities within CPS devices.
+A prominent one concerns privacy. A device is generally considered more secure as it performs more of its analysis and decision making locally or closer to the source of the personal information. 
+Another major reason is that, the responsiveness of the system would increase, if reasoning about the sensed environment/phenomenon is performed closer to the sensor and this would also allow for rapid adjustments to better focus on select aspects of the phenomenon in question. 
+With these rising expectations energy budgets are easily being pushed beyond the currently available envelopes. 
+Furthermore, off-the-shelf microprocessor-based platforms can neither match the required real-time latency nor the energy limits. 
+To appropriate balance these trade-offs requires  co-development and optimization at the system, hardware, and algorithmic levels.
+
+In this proposal, we aim to investigate co-design of machine learning hardware and algorithms for behavior monitoring applications and the integration of this AI/ML technology into cyberphysical systems to enable adaptive and intelligent capabilities constrained by the practical limitations of performance and energy efficiency. 
+Our goal is to develop design methods and tools for enabling accurate inference capabilities to close the loop of the sensing and response cycles so that these CPS devices can process rich sensor data in real time for accurate inference, in resource constrained and dynamic environments. 
+On one hand, it is desirable to perform majority of intelligent autonomous decisions and inference at the edge to alleviate privacy concerns as well as avoid excessive communication latencies that might render real-time closed loops infeasible. 
+On the other hand, it is a challenge for ML-enhanced CPS devices to integrate sophisticated hardware for performing high speed inference within limited form factors and battery capacities. 
+We will tackle this challenge by: 
+(i) creating a co-design methodology that caters to the optimal design of specialized ML hardware for the needs of the CPS devices; 
+(ii) embedding adaptive and reconfigurable features to the high performance ML hardware to create a solution that can be deployed at very large scale for low cost CPS devices; 
+(iii) leveraging the adaptiveness of the underlying ML hardware so that it can accommodate a wide variety of sensors and facilitate nearly passive sensing behavior to achieve unprecedented energy efficiencies; 
+and finally (iv) leverage transfer learning methods to adapt the same ML hardware to different sensing modes, behavior tracking contexts, and use cases.       
+

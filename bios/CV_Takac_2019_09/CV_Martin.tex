@@ -1,0 +1,533 @@
+\pdfoutput=1
+
+\documentclass[11pt]{article}
+
+ \usepackage[margin=1in]{geometry}
+
+ 
+\usepackage[normalem]{ulem}\normalem
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{url}
+%\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{cancel}
+ \usepackage[colorinlistoftodos,bordercolor=orange,backgroundcolor=orange!20,linecolor=orange,textsize=scriptsize]{todonotes}
+%\setlength{\bibsep}{0pt plus 0.3ex}
+%\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+%\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+\usepackage{hyperref} % Required for hyperlinks
+
+\iffalse
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\makeatletter
+
+\tikzset{%
+  fancy quotes/.style={
+    text width=\fq@width pt,
+    align=justify,
+    inner sep=1em,
+    anchor=north west,
+    minimum width=\linewidth,
+  },
+  fancy quotes width/.initial={.8\linewidth},
+  fancy quotes marks/.style={
+    scale=8,
+    text=white,
+    inner sep=0pt,
+  },
+  fancy quotes opening/.style={
+    fancy quotes marks,
+  },
+  fancy quotes closing/.style={
+    fancy quotes marks,
+  },
+  fancy quotes background/.style={
+    show background rectangle,
+    inner frame xsep=0pt,
+    background rectangle/.style={
+      fill=gray!25,
+      rounded corners,
+    },
+  }
+}
+
+\newenvironment{fancyquotes}[1][]{%
+\noindent
+\tikzpicture[fancy quotes background]
+\node[fancy quotes opening,anchor=north west] (fq@ul) at (0,0) {``};
+\tikz@scan@one@point\pgfutil@firstofone(fq@ul.east)
+\pgfmathsetmacro{\fq@width}{\linewidth - 2*\pgf@x}
+\node[fancy quotes,#1] (fq@txt) at (fq@ul.north west) \bgroup}
+{\egroup;
+\node[overlay,fancy quotes closing,anchor=east] at (fq@txt.south east) {''};
+\endtikzpicture}
+
+\makeatother
+\fi
+
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Assumption}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Rand}{Rand}
+\DeclareMathOperator{\support}{support}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dom}{dom}         % domain
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\del}[1]{{\color{red}#1}}            % comment
+\newcommand{\st}{\;:\;}                          % such that
+\newcommand{\ve}[2]{\left\langle #1 ,  #2 \right\rangle}    % inner product
+\newcommand{\eqdef}{:=}
+\newcommand{\R}{\mathbb{R}}                      % set of real numbers
+\newcommand{\Prob}{\mathbb{P}}                   % probability
+\newcommand{\E}{\mathbb{E}}                      % expectation
+\newcommand{\N}{n}                               % dimension of the problem =N; there will be n<=N blocks
+\newcommand{\U}{U}
+\newcommand{\C}{\mathcal{C}}
+
+\newcommand{\diag}{\mathbf{diag}}
+\newcommand{\Var}{\mathbf{Var}}
+\newcommand{\hatZ}{\hat Z}
+\newcommand{\hatS}{\hat S}
+\newcommand{\calG}{G}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\Lip}{\mathcal{L}}
+\newcommand{\calH}{\mathcal{H}_\beta}
+\newcommand{\calHMINI}{\mathcal{C}}
+
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\x}{ {\bf x}}
+\newcommand{\y}{ {\bf y}}
+\newcommand{\z}{ {\bf z}}
+\newcommand{\vv}{ {\bf v}}
+\newcommand{\wv}{ {\bf w}}
+\newcommand{\av}{ {\bf \alpha}}
+\newcommand{\bv}{ {\bf \alpha}}
+\newcommand{\V}{ {\bf v}}
+\newcommand{\T}{ {\bf T}}
+\newcommand{\X}{ {\bf X}}
+\newcommand{\Q}{ {\bf Q}}
+\newcommand{\0}{ {\bf 0}}
+\newcommand{\alf}{ {\boldsymbol \alpha}}
+\newcommand{\vchi}{ {\boldsymbol \chi}}
+
+\newcommand{\vu}{{\bf u}}
+\newcommand{\vdelta}{{\boldsymbol \delta} }
+\newcommand{\w}{  {\bf w}}
+\newcommand{\vt}{  {\bf t}}
+\newcommand{\va}{  {\bf a}}
+
+\newcommand{\f}{f}
+\newcommand{\YY}{\varphi}
+\newcommand{\K}{K}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\J}{J}
+\newcommand{\sJ}{\mathcal{J}}
+
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\vsubset}[2]{#1_{[#2]}}
+\newcommand{\Srv}{\hat{S}}
+\newcommand{\oo}{|J \cap \Srv_j|}
+
+\newcommand{\vc}[2]{#1^{(#2)}}                   % coordinate of a vector
+\newcommand{\cor}[2]{{{#1}_{#2}}}                   % coordinate of a vector
+\newcommand{\corit}[3]{{#1}_{#2}^{(#3)}}                   % coordinate of a vector
+\newcommand{\ncs}[2]{\|#1\|^2_{(#2)}}
+\newcommand{\nbp}[2]{\|#1\|_{(#2)}}              % norm block primal
+\newcommand{\nbd}[2]{\|#1\|_{(#2)}^*}            % norm block dual
+\newcommand{\Rw}[2]{\mathcal R_{#1}(#2)}
+\newcommand{\Rws}[2]{\mathcal R^2_{#1}(#2)}
+\DeclareMathOperator{\trace}{trace}           % trace
+\DeclareMathOperator{\card}{Card}           % Cardinality
+\newcommand{\note}[1]{{\color{red} #1}}
+
+\newcommand{\pnote}[1]{{  \color{red} [[ #1 -- Peter ]] }}
+\newcommand{\natinote}[1]{{  \color{blue} [[ #1 -- Nati ]] }}
+\newcommand{\takinote}[1]{{  \color{yellow} [[ #1 -- Martin ]] }}
+\newcommand{\avnote}[1]{{  \color{green} [[ #1 -- Avleen ]] }}
+\newcommand{\removed}[1]{}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\rVert}
+\newcommand{\hingeloss}{\ell}
+\newcommand{\hinge}[1]{\hingeloss ( #1 )}
+\newcommand{\trans}{{\top}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\bP}{\mathcal{P}}
+\newcommand{\bD}{\mathcal{D}}
+\newcommand{\bH}{\mathcal{H}}
+\newcommand{\sizeJ}{\omega}
+\newcommand{\Gg}{\mathcal{G}^{\sigma'}}
+
+
+\newcommand{\newstuff}[1]{{\color{red}#1}}
+\newcommand{\cocoa}{\textsc{CoCoA}}
+\newcommand{\cocoap}{\textsc{CoCoA$\!^{\bf \textbf{\footnotesize+}}$}}
+\newcommand{\localalgname}{\textsc{LocalSolver}\xspace}
+\newcommand{\localSDCA}{\textsc{LocalSDCA}\xspace}
+\newcommand{\setn}{[n]}
+\newcommand{\Exp}{\mathbb{E}}                      % expectation
+\newcommand\tagthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+
+\usepackage{subfigure}
+
+\usepackage{multicol}
+ 
+
+
+\usepackage{titlesec}
+\titlespacing*{\section}{-10pt}{-10pt}{-10pt}
+
+
+\definecolor{color1}{HTML}{81071c} %   
+
+\begin{document}
+
+
+%
+\begin{center}
+{
+\bf \large \color{color1}
+ Dr. Martin Tak\'a\v{c} 
+ }
+%
+%
+ \end{center}
+ 
+\begingroup
+    \fontsize{11pt}{12pt}\selectfont
+\section*{\color{color1}Professional Preparation\vskip-8pt}
+\begin{itemize}
+\setlength\itemsep{0em}
+
+\item Comenius University in Bratislava,  Slovakia,
+{\it Mathematics of Economics and Finance}, B.S., 2008.
+\item Comenius University in Bratislava,  Slovakia,
+{\it Mathematics of Economics and Finance}, M.S., 2010.
+\item The University of Edinburgh, UK, {\it Operations Research}, Ph.D., 2010--2014.
+\end{itemize}
+
+
+\section*{\color{color1}Appointments\vskip-8pt}
+
+
+\begin{itemize}
+\item
+08/2014 -- present
+Assistant Professor,
+Department of Industrial and Systems Engineering, Lehigh University.
+ 
+ 
+\item 2013--2016 {\it Founder \& CEO}, {\bf Big Data \& Analytics Solutions, Ltd.,}  Slovakia.
+ 
+\item 2010--2016 {\it Co-Founder}, {\bf Laurus Group, Ltd.}, Slovakia. 
+ 
+\item 2007--2010 {\bf Business Analyst \& Software Developer}, Plaut Slovensko, Ltd., Slovakia. 
+ 
+\end{itemize}
+
+
+\section*{\color{color1}Products\vskip-8pt}
+
+
+{\bf\color{color1}Five Products Related to Proposed Research\vskip-8pt}
+
+
+\begin{itemize}
+\setlength\itemsep{0.1em}
+
+\item Albert S. Berahas, Majid Jahani and  Martin Tak\'a\v{c},
+{\it Quasi-Newton Methods for Deep Learning: Forget the Past, Just Sample},
+ submitted, 2019.
+\\
+\url{https://arxiv.org/abs/1901.09997}
+ 
+
+
+\item 
+Xi He, Dheevatsa Mudigere, Mikhail Smelyanskiy and Martin Tak\'a\v{c}:
+{\it Large Scale Distributed Hessian-Free Optimization for Deep Neural Network},
+AAAI Workshop on Distributed Machine Learning, 2017.
+\url{http://arxiv.org/abs/1606.00511}
+
+\item 
+Chenxin Ma, Jakub Konečný, Martin Jaggi, Virginia Smith, Michael I. Jordan, Peter Richtárik, Martin  Tak\'a\v{c}:
+{\it Distributed Optimization with Arbitrary Local Solvers
+},
+Optimization Methods and Software, 2017.
+\\
+\url{https://www.tandfonline.com/doi/full/10.1080/10556788.2016.1278445}
+ 
+
+\item 
+Albert S. Berahas, Jorge Nocedal and Martin Tak\'a\v{c}:
+{\it 
+A Multi-Batch L-BFGS Method for Machine Learning},
+The Annual Conference on Neural Information Processing Systems, 2016.
+\\
+\url{http://papers.nips.cc/paper/6145-a-multi-batch-l-bfgs-method-for-ml.pdf}
+
+ 
+\item
+Chenxin Ma,
+Virginia Smith,
+Martin Jaggi,
+Michael I. Jordan,
+Peter Richt\'arik and Martin Tak\'a\v{c},
+{\it Adding vs. Averaging in Distributed Primal-Dual Optimization},
+International Conference on Machine Learning, ICML 2015.
+\url{http://www.jmlr.org/proceedings/papers/v37/mab15.pdf}
+ 
+  
+
+
+
+
+
+
+
+
+\end{itemize}
+
+\noindent 
+{\bf\color{color1}Five Other Products\vskip-8pt}
+
+\begin{itemize}
+\setlength\itemsep{0.1em}
+
+
+
+\item 
+Mohammadreza Nazari, Majid Jahani, Lawrence V. Snyder, Martin Tak\'a\v{c},
+{\it Don't Forget Your Teacher: A Corrective Reinforcement Learning Framework}, submitted,
+ 2019. 
+\\
+\url{http://arxiv.org/pdf/1905.13562.pdf}
+
+ 
+ 
+
+\item 
+Mohammadreza Nazari, Afshin Oroojlooy, Lawrence V. Snyder and Martin Tak\'a\v{c}:
+{\it Reinforcement Learning for Solving the Vehicle Routing Problem},
+NeurIPS 2018.
+\\
+\url{https://arxiv.org/abs/1802.04240}
+
+
+
+
+
+\item 
+Hossein K. Mousavi, Mohammadreza Nazari, Martin Tak\'a\v{c} and Nader Motee,
+{\it Multi-Agent Image Classification via Reinforcement Learning}, 2019. 
+\\
+\url{https://arxiv.org/abs/1905.04835}
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+
+
+
+\item Zheng Qu, Peter Richt\'arik, Martin Tak\'a\v{c}
+and  Olivier Fercoq,
+{\it SDNA: Stochastic Dual Newton Ascent for Empirical Risk Minimization},
+    ICML 2016.
+\\
+\url{http://jmlr.org/proceedings/papers/v48/qub16.pdf}
+ 
+
+ 
+
+ 
+
+
+\item
+Lam Nguyen, Jie Liu, Katya Scheinberg, and Martin Tak\'a\v{c},
+{\it
+SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient}, 34th International Conference on Machine Learning, ICML 2017.
+\url{http://proceedings.mlr.press/v70/nguyen17b.html}
+
+ 
+
+
+
+
+
+
+
+
+  
+
+ 
+ 
+ 
+
+\end{itemize}
+
+\section*{\color{color1}Synergistic Activities\vskip-8pt}
+
+
+\begin{itemize}[noitemsep,topsep=0pt]
+\setlength\itemsep{0.1em}
+\item {\bf\color{color1}Editorial work}\small
+\begin{itemize}[noitemsep,topsep=0pt]
+\setlength\itemsep{0.1em}
+\item  
+{\bf Associate Editors:} Mathematical Programming Computation, Optimization Methods and Software
+\item 
+{\bf Area chair}: ICML (2017, 2018, 2019), AISTATS (2019, 2020), NeurIPS 2019 
+\item 
+Member of {\bf Review Editorial Board of Optimization}, Frontiers in Applied Math. and Statistics 
+\item {\bf Referee for journals and conferences} including:  
+Mathematical Programming,
+SIAM Journal on Optimization,
+Machine Learning,
+IEEE Conference on Decision and Control,
+IEEE Transactions on Cybernetics,
+Journal of Machine Learning Research,
+Computational Optimization and Applications,
+Optimiation Methods and Software,
+Operations Research Letters,
+Journal of Optimization Theory and Applications,
+Neural Information Processing Systems (NeurIPS),
+International Conference on Learning Representations (ICLR),
+International Conference on Machine Learning (ICML), Conference on Systems and Machine Learning {SysML} 
+\end{itemize}
+\normalsize 
+\item {\bf\color{color1}Open-source}\\solvers for optimization problems and machine learning 
+\url{https://github.com/optml}
+and
+\url{https://github.com/OptMLGroup}
+\item 
+{\bf\color{color1}Organization work}
+\begin{itemize}[noitemsep,topsep=0pt]
+\item conferences: SCOR 2012; MOPTA 2015, MOPTA 2016, /DIMACS/TRIPODS/MOPTA (2018) \item sessions at international conferences including:
+%\vskip-15pt \ $ $
+\begin{itemize}  [noitemsep,topsep=0pt]
+\setlength\itemsep{0.1em}
+
+\small 
+\item The International Conference on Continuous Optimization ICCOPT 2019, Germany
+
+
+\item The International Symposium on Mathematical Programming 2018, France
+
+
+\item DIMACS/TRIOPDS/MOPTA 2018 - Modeling and Optimization: Theory and Application, 2018, Bethlehem, PA
+
+
+\item MOPTA 2017 - Modeling and Optimization: Theory and Application, 2017, Bethlehem, PA
+
+\item SIAM Conference on Optimization, 2017, Vancouver, Canada
+
+
+
+%\item MOPTA 2016 - Modeling and Optimization: Theory and Application, 2016, Bethlehem, PA.
+\item 
+5th International Conference on Continuous Optimization 2016, Tokyo, Japan
+\item 
+28th European Conference
+on Operational Research (EURO 2016),  2016, Poznan, Poland
+
+%\item MOPTA 2015 - Modeling and Optimization: Theory and Application, 2015, Bethlehem, PA.
+
+
+\item The International Symposium on Mathematical Programming 2015, Pittsburgh, PA
+
+
+\item INFORMS Annual Meeting,  2014, San Francisco, CA
+
+
+ 
+
+\item 
+4th International Conference on Continuous Optimization 2013, Lisbon, Portugal
+\item 25th Biennial Numerical Analysis Conference, 2013, Glasgow, UK
+\end{itemize}
+
+\end{itemize}
+
+\item {\bf\color{color1}Education activities} 
+ \begin{itemize}  [noitemsep,topsep=0pt]
+\setlength\itemsep{0.1em}
+\item Curriculum development:
+ \begin{itemize}  [noitemsep,topsep=0pt]
+\item Establish course "Mining of Large Datasets"
+\item Redesign course "Computational Methods in Optimization"
+\item Redesign course "Algorithms in Systems Engineering"
+\end{itemize}
+\item Workshop for PhD students:
+"High-performance computing for ISE"
+\item {\bf Co-organize and co-teach TRIPODS  summer school on machine learning (2018)}
+
+\item Establish and chair Undergraduate and Masters Research Symposium (2017,2018,2019)
+
+\end{itemize}
+
+\item {\bf\color{color1}Outreach activities} 
+\begin{itemize}[noitemsep,topsep=0pt]
+\setlength\itemsep{0.1em}
+\item 
+ {\bf AI/ML Club}, Saucon Valley School District,  High school
+ \item Mentor {\bf Data Analytics And Design (D.A.A.D.) Club} @ Lehigh
+ \item 
+{\bf Robotics Club}, Saucon Valley School District, Elementary school
+\end{itemize}
+
+\end{itemize}
+
+ 
+
+
+
+\end{document}
+
+
+
+
+
+
+\clearpage
+

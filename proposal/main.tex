@@ -1,0 +1,163 @@
+\documentclass[10pt]{SelfArx}
+%\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{palatino}
+\usepackage{upgreek}
+
+%\PaperTitle{TITLE ON HEADER}
+%  \PaperTitle{AI Instrumentation Institute (AI$^3$) for Discovery in Physics }
+ 
+  \PaperTitle{ }
+
+% Add packages and set options
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+
+\include{conf}
+
+\graphicspath{{./}{./img/}}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{pifont}
+\usepackage{forloop}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+%\usewrapackage{fontspec}
+%\setmainfont{Arial}
+
+%\usepackage{lineno}
+%\linenumbers
+
+\newcounter{starnumber}
+\newcommand{\stars}[1]{
+  \forloop{starnumber}{1}{\value{starnumber} < 4}{
+    \ifthenelse{#1 < \value{starnumber}}{\ding{73}}{\ding{72}}%
+  }
+}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\tcbuselibrary{skins}
+
+\newcommand{\INPUT}{\textbf{Input}}
+\newcommand{\FOR}{\textbf{For}~}
+%\DeclareMathOperator*{\argmin}{argmin}
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+ 
+%\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,coltitle=black,center title}}
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,colback=yellow!10!white,colframe=red!50!black,coltitle=black,center title}}
+
+\usepackage{algorithm}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+% Seda did not want to have a blue links.... NSF also doesn't like it
+%\hypersetup{colorlinks,urlcolor=blue}
+ 
+
+\newcommand{\sups}[1]{{#1}}
+\newcommand{\sss}[1]{{\scriptscriptstyle{#1}}}
+ \usepackage[normalem]{ulem}
+
+\newcommand{\hlt}[1]{{\color{red}\textbf{#1}}}
+\newcommand{\hao}[1]{{\color{cyan}[Hao: \textbf{#1}]}}
+\newcommand{\hlsfml}{{\tt hls4ml}}
+\newcommand{\myparagraph}[1]{\noindent{\color{color1}\textbf{#1}}}
+
+%**********
+% Document
+%**********
+
+%\linespread{0.93}
+
+
+\setlist[itemize]{leftmargin=5.5mm}
+
+
+%\usepackage{lineno}
+%\linenumbers
+
+
+
+\begin{document}
+\fontfamily{ppl}\selectfont
+
+
+
+
+
+%Can be temporary, but useful for overall structure
+
+
+
+%\tableofcontents
+%\vspace{1cm}
+
+%\begin{tabular}{c|c}
+%Overview     & 1 \\
+%Research 2.1     & 4.5 \\
+%Research 2.2     & 4.5 \\
+%Research 2.3     & 4.5 \\
+%Intelec. Merit &  \\
+%Broader impact &  \\ 
+%Education     & 4 \\
+%Broading     & 2.5 \\
+%Knowledge Tr.     & 0.8 \\
+%Management     & 1.5 \\
+%Prior NSF     & 0.8 \\
+%\hline 
+%Total & 
+%\end{tabular}
+
+
+
+
+\clearpage
+
+
+\begin{center}
+{\bf \large 
+Collaborative Research: CPS: Medium: Ultra Low Power Adaptive Inference for Autonomous Mobile Health 
+}
+\end{center}
+
+
+
+\setcounter{page}{1}
+\input{overview.tex}
+
+
+\input{researchplan.tex}
+\input{eval.tex}
+
+
+
+%\input{intellectual.tex}
+\input{broaderimpact.tex}
+%\input{education.tex}
+%\input{broadpar.tex}
+%\input{collab.tex}
+\input{mangtplan.tex}
+\input{priorNSF.tex}
+
+
+\newpage
+
+%\bibliographystyle{plain}
+\bibliographystyle{unsrt}
+
+% JD: inserted this bib format as it's common in HEP, but I'm not sure what the best format is for NSF proposals, so feel free to change it back.
+%\bibliographystyle{lucas_unsrt}
+
+% PLEASE DO NOT CHANGE CITATION STYLES!!!!!! NSF has a strict rules....!!! :))))
+
+% THANKS
+
+\bibliography{literature,prior_takac,prior_choudhary_agrawal}
+
+
+\end{document}

@@ -1,0 +1,64 @@
+%**********
+% Commands
+%**********
+
+% Math commands:
+\newcommand{\half} {\frac12}
+\newcommand{\thalf}{\tfrac12}
+
+% Redefined math commands:
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+
+% Math commands with arguments
+\newcommand{\C}[1]{\mathbb{C}^{#1}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\eR}[1]{\skew{-2}\overline{\mathbb{R}}^{#1}}
+\newcommand{\N}[1]{\mathbb{N}^{#1}}
+\newcommand{\Q}[1]{\mathbb{Q}^{#1}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+% Shorthand commands for begin/end statements:
+\newcommand{\baligned}     {\begin{aligned}}
+\newcommand{\ealigned}     {\end{aligned}}
+\newcommand{\barray}       {\begin{array}}
+\newcommand{\earray}       {\end{array}}
+\newcommand{\bbmatrix}     {\begin{bmatrix}}
+\newcommand{\ebmatrix}     {\end{bmatrix}}
+\newcommand{\bcases}       {\begin{cases}}
+\newcommand{\ecases}       {\end{cases}}
+\newcommand{\bcenter}      {\begin{center}}
+\newcommand{\ecenter}      {\end{center}}
+\newcommand{\bcolumn}      {\begin{column}}
+\newcommand{\ecolumn}      {\end{column}}
+\newcommand{\bcolumns}     {\begin{columns}}
+\newcommand{\ecolumns}     {\end{columns}}
+\newcommand{\benumerate}   {\begin{enumerate}}
+\newcommand{\eenumerate}   {\end{enumerate}}
+\newcommand{\bequation}    {\begin{equation}}
+\newcommand{\eequation}    {\end{equation}}
+\newcommand{\bequationn}   {\begin{equation*}}
+\newcommand{\eequationn}   {\end{equation*}}
+\newcommand{\bfigure}      {\begin{figure}}
+\newcommand{\efigure}      {\end{figure}}
+\newcommand{\bflushright}  {\begin{flushright}}
+\newcommand{\eflushright}  {\end{flushright}}
+\newcommand{\bitemize}     {\begin{itemize}}
+\newcommand{\eitemize}     {\end{itemize}}
+\newcommand{\bpmatrix}     {\begin{pmatrix}}
+\newcommand{\epmatrix}     {\end{pmatrix}}
+\newcommand{\bsubequations}{\begin{subequations}}
+\newcommand{\esubequations}{\end{subequations}}
+\newcommand{\btable}       {\begin{table}}
+\newcommand{\etable}       {\end{table}}
+\newcommand{\btabular}     {\begin{tabular}}
+\newcommand{\etabular}     {\end{tabular}}
+\newcommand{\bvmatrix}     {\begin{vmatrix}}
+\newcommand{\evmatrix}     {\end{vmatrix}}
+
+% Shorthand commands for begin/end combination statements:
+\newcommand{\bequalin}     {\bequationn\baligned}
+\newcommand{\eequalin}     {\ealigned\eequationn}
+\newcommand{\bequali}      {\bsubequations\begin{align}}
+\newcommand{\eequali}      {\end{align}\esubequations}

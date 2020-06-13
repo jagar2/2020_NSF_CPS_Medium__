@@ -1,0 +1,234 @@
+%\pdfoutput=1
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\iffalse
+\documentclass[10pt]{article}
+\fi
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+\iftrue 
+\documentclass[11pt]{SelfArx}
+\definecolor{color1}{HTML}{81071c} %   0,0,90  Color of the article title and sections
+\definecolor{color2}{RGB}{0.972549,0.8352941, 0.5137255} % Color of the boxes behind the abstract and headings
+\definecolor{light-gray}{gray}{0.05}
+\color{light-gray}
+\JournalInfo{\today} % Journal information
+\Archive{XXXX} % Additional notes (e.g. copyright, DOI, review/research article)
+\PaperTitle{
+ Facilities, Equipment, and Other Resources
+} % Article title
+\Authors{
+}
+\Keywords{} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+\Abstract{}
+\fi
+
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage[T1]{fontenc}
+%\usepackage{courier} 
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+\usepackage[margin=1in]{geometry}
+\usepackage[normalem]{ulem}\normalem
+\usepackage{epsfig,ifthen}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{url}
+%\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage{enumitem}
+%\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{cancel}
+\usepackage[colorinlistoftodos,bordercolor=orange,backgroundcolor=orange!20,linecolor=orange,textsize=scriptsize]{todonotes}
+%\setlength{\bibsep}{0pt plus 0.3ex}
+%\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+%\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+\usepackage{hyperref} % Required for hyperlinks
+\usepackage{wrapfig}
+\iffalse
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\makeatletter
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{url}
+%\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{fec_styles/fec}
+\usepackage{pdfpages}
+
+\tikzset{%
+  fancy quotes/.style={
+    text width=\fq@width pt,
+    align=justify,
+    inner sep=1em,
+    anchor=north west,
+    minimum width=\linewidth,
+  },
+  fancy quotes width/.initial={.8\linewidth},
+  fancy quotes marks/.style={
+    scale=8,
+    text=white,
+    inner sep=0pt,
+  },
+  fancy quotes opening/.style={
+    fancy quotes marks,
+  },
+  fancy quotes closing/.style={
+    fancy quotes marks,
+  },
+  fancy quotes background/.style={
+    show background rectangle,
+    inner frame xsep=0pt,
+    background rectangle/.style={
+      fill=gray!25,
+      rounded corners,
+    },
+  }
+}
+
+\newenvironment{fancyquotes}[1][]{%
+\noindent
+\tikzpicture[fancy quotes background]
+\node[fancy quotes opening,anchor=north west] (fq@ul) at (0,0) {``};
+\tikz@scan@one@point\pgfutil@firstofone(fq@ul.east)
+\pgfmathsetmacro{\fq@width}{\linewidth - 2*\pgf@x}
+\node[fancy quotes,#1] (fq@txt) at (fq@ul.north west) \bgroup}
+{\egroup;
+\node[overlay,fancy quotes closing,anchor=east] at (fq@txt.south east) {''};
+\endtikzpicture}
+
+\makeatother
+\fi
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Assumption}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Rand}{Rand}
+\DeclareMathOperator{\support}{support}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dom}{dom}         % domain
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\del}[1]{{\color{red}#1}}            % comment
+\newcommand{\st}{\;:\;}                          % such that
+\newcommand{\ve}[2]{\left\langle #1 ,  #2 \right\rangle}    % inner product
+\newcommand{\eqdef}{:=}
+\newcommand{\R}{\mathbb{R}}                      % set of real numbers
+\newcommand{\Prob}{\mathbb{P}}                   % probability
+\newcommand{\E}{\mathbb{E}}                      % expectation
+\newcommand{\N}{n}                               % dimension of the problem =N; there will be n<=N blocks
+\newcommand{\U}{U}
+\newcommand{\C}{\mathcal{C}}
+
+\newcommand{\diag}{\mathbf{diag}}
+\newcommand{\Var}{\mathbf{Var}}
+\newcommand{\hatZ}{\hat Z}
+\newcommand{\hatS}{\hat S}
+\newcommand{\calG}{G}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\Lip}{\mathcal{L}}
+\newcommand{\calH}{\mathcal{H}_\beta}
+\newcommand{\calHMINI}{\mathcal{C}}
+
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calJ}{\mathcal{J}}
+\renewcommand{\d}{ {\Delta}}
+\newcommand{\x}{ {\bf x}}
+\newcommand{\y}{ {\bf y}}
+\newcommand{\z}{ {\bf z}}
+\newcommand{\vv}{ {\bf v}}
+\newcommand{\wv}{ {\bf w}}
+\newcommand{\av}{ {\bf \alpha}}
+\newcommand{\bv}{ {\bf \alpha}}
+\newcommand{\V}{ {\bf v}}
+\newcommand{\T}{ {\bf T}}
+\newcommand{\X}{ {\bf X}}
+\newcommand{\Q}{ {\bf Q}}
+\newcommand{\0}{ {\bf 0}}
+\newcommand{\alf}{ {\boldsymbol \alpha}}
+\newcommand{\vchi}{ {\boldsymbol \chi}}
+
+\newcommand{\vu}{{\bf u}}
+\newcommand{\vdelta}{{\boldsymbol \delta} }
+\newcommand{\w}{  {\bf w}}
+\newcommand{\vt}{  {\bf t}}
+\newcommand{\va}{  {\bf a}}
+\renewcommand{\t}{{^\top}}
+
+\newcommand{\f}{f}
+\newcommand{\YY}{\varphi}
+\newcommand{\K}{K}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\J}{J}
+\newcommand{\sJ}{\mathcal{J}}
+
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\vsubset}[2]{#1_{[#2]}}
+\newcommand{\Srv}{\hat{S}}
+\newcommand{\oo}{|J \cap \Srv_j|}
+
+\newcommand{\vc}[2]{#1^{(#2)}}                   % coordinate of a vector
+\newcommand{\cor}[2]{{{#1}_{#2}}}                   % coordinate of a vector
+\newcommand{\corit}[3]{{#1}_{#2}^{(#3)}}                   % coordinate of a vector
+\newcommand{\ncs}[2]{\|#1\|^2_{(#2)}}
+\newcommand{\nbp}[2]{\|#1\|_{(#2)}}              % norm block primal
+\newcommand{\nbd}[2]{\|#1\|_{(#2)}^*}            % norm block dual
+\newcommand{\Rw}[2]{\mathcal R_{#1}(#2)}
+\newcommand{\Rws}[2]{\mathcal R^2_{#1}(#2)}
+\DeclareMathOperator{\trace}{trace}           % trace
+\DeclareMathOperator{\card}{Card}           % Cardinality
+\newcommand{\note}[1]{{\color{red} #1}}
+
+\newcommand{\pnote}[1]{{  \color{red} [[ #1 -- Peter ]] }}
+\newcommand{\natinote}[1]{{  \color{blue} [[ #1 -- Nati ]] }}
+\newcommand{\takinote}[1]{{  \color{yellow} [[ #1 -- Martin ]] }}
+\newcommand{\avnote}[1]{{  \color{green} [[ #1 -- Avleen ]] }}
+\newcommand{\removed}[1]{}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\rVert}
+\newcommand{\hingeloss}{\ell}
+\newcommand{\hinge}[1]{\hingeloss ( #1 )}
+\newcommand{\trans}{{\top}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\bP}{\mathcal{P}}
+\newcommand{\bD}{\mathcal{D}}
+\newcommand{\bH}{\mathcal{H}}
+\newcommand{\sizeJ}{\omega}
+\newcommand{\Gg}{\mathcal{G}^{\sigma'}}
+\newcommand{\newstuff}[1]{{\color{red}#1}}
+\newcommand{\cocoa}{\textsc{CoCoA}}
+\newcommand{\cocoap}{\textsc{CoCoA$\!^{\bf \textbf{\footnotesize+}}$}}
+\newcommand{\localalgname}{\textsc{LocalSolver}\xspace}
+\newcommand{\localSDCA}{\textsc{LocalSDCA}\xspace}
+\newcommand{\setn}{[n]}
+\newcommand{\Exp}{\mathbb{E}}                      % expectation
+\newcommand\tagthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfigure}
+
+\newcommand{\rr}[1]{{\color{red}  #1 }}

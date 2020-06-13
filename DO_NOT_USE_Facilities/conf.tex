@@ -1,0 +1,222 @@
+%!TEX root = ./2017_NSF_proposal.tex
+\AtBeginDocument{%
+  \addtolength\abovedisplayskip{-0.5\baselineskip}%
+  \addtolength\belowdisplayskip{-0.5\baselineskip}%
+%  \addtolength\abovedisplayshortskip{-0.5\baselineskip}%
+%  \addtolength\belowdisplayshortskip{-0.5\baselineskip}%
+}
+
+
+
+\usepackage{fec_styles/fec}
+\usepackage[sort&compress]{natbib}
+ \usepackage{comment}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol}
+
+% \RequirePackage{algorithmic,algorithm}
+
+
+
+
+\newcommand{\tr}{\textrm{tr}}
+
+\newcommand{\inTR}[1]{}
+\newcommand{\setN}{N}
+
+\usepackage{algorithm}
+% \usepackage{algorithmic}
+\usepackage{algpseudocode}
+
+\usepackage[colorinlistoftodos,bordercolor=orange,backgroundcolor=orange!20,linecolor=orange,textsize=scriptsize]{todonotes}
+
+
+%\usepackage[disable]{todonotes}
+
+
+
+\JournalInfo{\today} % Journal information
+\Archive{XXXX} % Additional notes (e.g. copyright, DOI, review/research article)
+
+
+\Authors{
+}
+\Keywords{} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+\Abstract{}
+
+
+%\usepackage{subfigure}
+%\usepackage{subfig}
+\usepackage{enumitem}
+
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{url}
+
+\usepackage{epstopdf}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\newcommand{\note}[1]{{\small \color{red} \it #1}}
+
+
+
+\setlength{\bibsep}{0pt plus 0.3ex}
+\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+
+
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+
+ \newtheorem{theorem}{Theorem}
+ \newtheorem{lemma}{Lemma}
+% \newtheorem{propres}{Proposed Research}
+\newtheorem{propres}{Research Topic}
+
+%---------------------------------------------------------------------------------------
+%   COLORS
+%----------------------------------------------------------------------------------------
+\definecolor{color1}{HTML}{81071c} %   0,0,90  Color of the article title and sections
+\definecolor{color2}{RGB}{0.972549,0.8352941, 0.5137255} % Color of the boxes behind the abstract and headings
+\definecolor{light-gray}{gray}{0.1}
+\color{light-gray}
+
+
+%----------------------------------------------------------------------------------------
+%   ABSTRACT
+%----------------------------------------------------------------------------------------
+
+
+
+\usepackage{epsfig}
+\usepackage{epstopdf}
+
+%----------------------------------------------------------------------------------------
+%   HYPERLINKS
+%----------------------------------------------------------------------------------------
+% \usepackage{hyperref} % Required for hyperlinks
+
+\newcommand\tagthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+
+\usepackage{amsmath}
+\DeclareMathOperator{\Rand}{Rand}
+\DeclareMathOperator{\support}{support}
+
+
+
+% revision and comment
+\usepackage[normalem]{ulem}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\del}[1]{{\ignorespaces \color{red} \sout{#1}}}
+\newcommand{\add}[1]{{\color{blue} {#1}}}
+\newcommand{\rewrite}[1]{{\color{SeaGreen} {#1}}}
+\newcommand{\tored}[1]{{\color{red} {#1}}}
+
+
+
+                       % such that
+\newcommand{\ve}[2]{\left\langle #1 ,  #2 \right\rangle}    % inner product
+\newcommand{\eqdef}{:=}
+                    % set of real numbers
+\newcommand{\Prob}{\mathbb{P}}                   % probability
+                       % expectation
+
+\newcommand{\U}{U}
+\newcommand{\argmin}{argmin}
+
+ \newcommand{\R}{ {\bf R}}
+\newcommand{\Var}{\mathbf{Var}}
+\newcommand{\hatZ}{\hat Z}
+\newcommand{\hatS}{\hat S}
+\newcommand{\calG}{G}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\Lip}{\mathcal{L}}
+\newcommand{\calH}{\mathcal{H}_\beta}
+\newcommand{\calHMINI}{\mathcal{C}}
+
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\x}{ {x}}
+\newcommand{\y}{ {\bf y}}
+\newcommand{\z}{ {\bf z}}
+\newcommand{\vv}{ {\bf v}}
+\newcommand{\wv}{ {\bf w}}
+\newcommand{\av}{ {\bf \alpha}}
+\newcommand{\bv}{ {\bf \alpha}}
+\newcommand{\V}{ {\bf v}}
+\newcommand{\T}{ {\bf T}}
+\newcommand{\X}{ {\bf X}}
+
+\newcommand{\0}{ {\bf 0}}
+\newcommand{\alf}{ {\boldsymbol \alpha}}
+\newcommand{\vchi}{ {\boldsymbol \chi}}
+
+\newcommand{\vu}{{\bf u}}
+\newcommand{\vdelta}{{\boldsymbol \delta} }
+\newcommand{\w}{  {\bf w}}
+\newcommand{\vt}{  {\bf t}}
+\newcommand{\va}{  {\bf a}}
+
+\newcommand{\f}{f}
+\newcommand{\YY}{\varphi}
+\newcommand{\K}{K}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\J}{J}
+\newcommand{\sJ}{\mathcal{J}}
+
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\vsubset}[2]{#1_{[#2]}}
+\newcommand{\Srv}{\hat{S}}
+\newcommand{\oo}{|J \cap \Srv_j|}
+
+\newcommand{\vc}[2]{#1^{(#2)}}                   % coordinate of a vector
+\newcommand{\cor}[2]{{{#1}_{#2}}}                   % coordinate of a vector
+\newcommand{\corit}[3]{{#1}_{#2}^{(#3)}}                   % coordinate of a vector
+\newcommand{\ncs}[2]{\|#1\|^2_{(#2)}}
+\newcommand{\nbp}[2]{\|#1\|_{(#2)}}              % norm block primal
+\newcommand{\nbd}[2]{\|#1\|_{(#2)}^*}            % norm block dual
+\newcommand{\Rw}[2]{\mathcal R_{#1}(#2)}
+\newcommand{\Rws}[2]{\mathcal R^2_{#1}(#2)}
+        % Cardinality
+
+\newcommand{\pnote}[1]{{  \color{red} [[ #1 -- Peter ]] }}
+\newcommand{\natinote}[1]{{  \color{blue} [[ #1 -- Nati ]] }}
+\newcommand{\takinote}[1]{{  \color{yellow} [[ #1 -- Martin ]] }}
+\newcommand{\avnote}[1]{{  \color{green} [[ #1 -- Avleen ]] }}
+\newcommand{\removed}[1]{}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\rVert}
+\newcommand{\hingeloss}{\ell}
+\newcommand{\hinge}[1]{\hingeloss ( #1 )}
+\newcommand{\trans}{{\top}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\bP}{\mathcal{P}}
+\newcommand{\bD}{\mathcal{D}}
+\newcommand{\bH}{\mathcal{H}}
+\newcommand{\sizeJ}{\omega}
+\newcommand{\Gg}{\mathcal{G}^{\sigma'}}
+
+
+\newcommand{\newstuff}[1]{{\color{red}#1}}
+\newcommand{\cocoa}{\textsc{CoCoA}}
+\newcommand{\cocoap}{\textsc{CoCoA$\!^{\bf \textbf{\footnotesize+}}$}}
+\newcommand{\localalgname}{\textsc{LocalSolver}\xspace}
+\newcommand{\localSDCA}{\textsc{LocalSDCA}\xspace}
+\newcommand{\setn}{[n]}
+\newcommand{\Exp}{\mathbb{E}}                      % expectation
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+%----------------------------------------------------------------------------------------
+%   HYPERLINKS
+%----------------------------------------------------------------------------------------
+\usepackage{hyperref} % Required for hyperlinks
+\hypersetup{colorlinks,breaklinks=true,urlcolor=color2,citecolor=color1,linkcolor=color1,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}

@@ -1,0 +1,103 @@
+%**********
+% Preamble
+%**********
+\pdfoutput=1
+\input{preamble}
+
+% External referencing
+%\usepackage{xcite}
+%\externalcitedocument{../proposal/proposal}
+\hypersetup{colorlinks,urlcolor=blue}
+
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+%**********
+% Document
+%**********
+\begin{document}
+  
+\begin{center}
+  {\bf \large TRIPODS Institute for Optimization and Learning:}
+  \smallskip
+  
+  {\bf \large Facilities, Equipment, and Other Resources}
+\end{center} 
+ 
+
+Lehigh has numerous facilities that can accommodate workshops and summer/winter schools.  The \href{https://lehighmountaintop.wordpress.com/learn-more/}{Mountaintop Campus} houses several such facilities
+ that has been used by the Lehigh co-PIs and others in the past for 
+events ranging from one day events to multiple day workshops. 
+
+ \paragraph{The DISC Institute} In particular, the TRIPODS summer school in the summer of 2018 will be held in Building C in Mountaintop Campus which is the official location of the DISC institute. This facility, Lehigh's newest learning space on the Mountaintop campus, includes many modern features such as a telepresence
+classroom and many teleconferencing and collaborative spaces for group projects (see pictures below).\\
+\begin{center}
+\includegraphics[height=3cm]{1012131_00_N5_bdc1_HERO.jpeg}
+\includegraphics[height=3cm]{Mountaintop-BuildingC}
+\includegraphics[height=3cm]{briefs-mountaintop-tech-building-initiative.jpg}
+\end{center}
+%\includegraphics[height=3cm]{Path_to_Prominence_Lehigh_University_Evolution_MountaintopRendering_0.jpg}
+
+
+\paragraph{The conference facilities} The TRIPODS/DIMACS workshop and the MOPTA conference will be held in Mountain Top Campus is Lehigh's Iacocca Conference Center (\url{https://financeadmin.lehigh.edu/content/iacocca-conference-center}). The building includes dining facilities as well as several breakout and meeting rooms. In particular it main dining room can accommodated up to 300 people, but is ideal setting for a plenary session for about 100-120 participants. Breakout rooms can fit 40-50 people and there is ample space for posters in the foyer leading to the dining room (see the pictures below)
+\begin{center}
+\includegraphics[height=3cm]{Iacocca_Aerial.jpg}
+\includegraphics[height=3cm]{wdr.jpg}
+\includegraphics[height=3cm]{Tower_92717.jpg}
+%\includegraphics[height=3cm]{asfas.jpeg}
+
+
+
+\end{center}
+
+
+
+
+An alternative conference facility on Lehigh's main (lower) campus is Rauch Business center. 
+
+The university also has available conference services staff that helps with planning all phases of the event including catering (\url{https://financeadmin.lehigh.edu/content/conference-services-staff}). The university maintains an up-to-date web page with nearby hotels (\url{http://mylehigh.lehigh.edu/s/1127/interior-hybrid.aspx?sid=1127&gid=1&sitebuilder=1&pgid=8950}). 
+
+
+
+Lehigh University is well-positioned to serve as national or international conference site.   A large number of universities and industry research centers are within a few hours drive of Lehigh, meaning that participants could reach the cite cheaply and in little time.  For reference, New York City is only 80~miles and Philadelphia is only 60~miles away from Lehigh, and researchers from Pittsburgh to Baltimore to Upstate New York are also within a few hours driving distance. Newark Liberty International airport  is about 1 hours away.  It is also worthwhile to mention that there are benefits of Lehigh \emph{not} being situated in a large city.  Indeed, the Allentown-Bethlehem-Easton area has an airport within a 10-minute drive from Lehigh, but the area is affordable enough that, e.g., workshop participants can find comfortable lodgings at modest cost, for example the conference hotel for TRIPODS/DIMACS/MOPTA event has a negotiated rate of \$80/night. 
+
+
+
+% \paragraph{Lehigh's Flying Machines Coliseum}
+%\begin{wrapfigure}{r}{0.35\textwidth}
+%\center
+%    \includegraphics[width=0.35\textwidth]{Facilities/IMAG1065} 
+%    \caption*{The LFMC is located at 1515 North Mountain Drive, BETHLEHEM, PA, 18015.}
+%\end{wrapfigure}
+
+The summer school for the ML in Robotics workshop  will be implemented in Lehigh's Flying Machines Coliseum (LFMC) which is as part of Distributed Control and Dynamical Systems (DCDS) Laboratory, in the Department of Mechanical Engineering and Mechanics at Lehigh University (see the picture below (left)). 
+
+The mission of LFMC is to investigate experimental aspects of  advanced control capabilities for single or multiple/interconnected quad-copters. The DCDS Lab team is developing design methodologies to optimize drone size, flight controller, and on-board sensors by integrating and co-designing control and navigation algorithms. The group's vision is to unveil the fundamental principles of long-term autonomy.
+
+The LFMC was founded in 2017 as a part of the DCDS group and. Its mission regards experimental research on autonomous flying quad-copters. The overall facility measures up to 4000 square feet and it includes a platform for flying quadcopters, a conference/lab room, an auxiliary office as well as a facility station with a 24/7 running server.
+
+ The main platform covers a space of approximately 3500 square feet. It is equipped with 16 high-precision Opti-Track motion capture system and 4 HD cameras. 
+ 
+% \begin{wrapfigure}{l}{0.35\textwidth} 
+%\center
+%    \includegraphics[width=0.35\textwidth]{Facilities/IMAG1089} 
+%    \caption*{View of the surveillance system in the Platform room. It consists of the Opti-Track motion capture and the HD camera.}\vspace{-0.5in}
+%\end{wrapfigure} 
+Real-time experiments are monitored via a high level operating station, that processes motion capture system data to control units using a wireless communication network. The platform space is supported by the server station and the conference/lab room (see the picture below (right)).
+
+ \begin{center}
+\includegraphics[height=3cm]{Facilities/IMAG1065}
+\includegraphics[height=3cm]{Facilities/IMAG1089}
+
+\end{center}
+
+
+
+
+\end{document}
